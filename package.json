@@ -1,0 +1,22 @@
+{
+  "name": "card-validator",
+  "version": "1.0.0",
+  "description": "Paquete para validar una tarjeta de credito",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AraceliCumen/card-validator.git"
+  },
+  "keywords": [
+    "card-validator"
+  ],
+  "author": "Araceli Cueva, Alejandra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AraceliCumen/card-validator/issues"
+  },
+  "homepage": "https://github.com/AraceliCumen/card-validator#readme"
+}
