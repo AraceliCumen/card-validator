@@ -1,22 +1,29 @@
 {
   "name": "card-validator",
   "version": "1.0.0",
-  "description": "Paquete para validar una tarjeta de credito",
+  "description": "LibraryJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
+  },
+  "scripts": {
+    "build": "babel --presets env src -d lib"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AraceliCumen/card-validator.git"
   },
-  "keywords": [
-    "card-validator"
-  ],
-  "author": "Araceli Cueva, Alejandra",
+  "keywords": ["Library", "ECMAScript6"],
+  "author": "Aracely Cueva, Alejandra Cabrera",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AraceliCumen/card-validator/issues"
   },
-  "homepage": "https://github.com/AraceliCumen/card-validator#readme"
+  "homepage": "https://github.com/AraceliCumen/card-validator#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  }
 }
