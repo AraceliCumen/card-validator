@@ -15,7 +15,9 @@ $(document).ready(() =>{
    $buttonPay = $('#btn-pay');
    
    $formCardValidate = $('#form-dard-validate');
-   $
+   
+   
+
 
 
 });

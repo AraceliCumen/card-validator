@@ -1,2 +1,2 @@
-
-node_modules/*
+# Ignorar dir node modules 
+node_modules/
