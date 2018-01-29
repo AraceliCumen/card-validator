@@ -4,4 +4,6 @@ let sum = (j,k) => console.log(j+k);
 
 let sum2 = (j, k, m) => console.log(j + k + m);
 
-let prod = (a,b) => console.log(a*b);
+let prod = (a, b) => console.log(a*b);
+
+let prod1 = (at, bt) => console.log(at/bt);
