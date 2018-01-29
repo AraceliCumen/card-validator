@@ -45,7 +45,7 @@ Se implementa por etapas las tareas establecidas por semanas:
 
 **Herramienta de planificación - TRELLO**
 
-![](assets/img/trello.png)  
+![](public/assets/img/trello.png)  
 
 ## Herramientas  
 

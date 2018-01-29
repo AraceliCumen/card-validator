@@ -9,7 +9,7 @@
     "build": "babel src -d lib"
   },
   "scripts": {
-    "build": "babel --presets env src -d lib"
+    "build": "babel --presets env src -d public/lib"
   },
   "repository": {
     "type": "git",

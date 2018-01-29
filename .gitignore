@@ -1,2 +1,3 @@
-# Ignorar dir node modules 
 node_modules/
+libr/
+node_modules
