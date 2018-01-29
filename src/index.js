@@ -1,23 +1,112 @@
-// let sum = (a, b) => console.log(a + b);
+// let total = (a, b) => console.log(a + b);
 
 // let pot = k => console.log(k * k);
 
 // pot(3);
 
-// sum(1, 2);
-// sum(2, 5);
+// total(1, 2);
+// total(2, 5);
 
-$(document).ready(() =>{
-   $cardNumber = $('#cn');
-   $expiryDate = $('#exp');
-   $cvv = $('#cvv');
-   $name = $('#name');
-   $buttonPay = $('#btn-pay');
-   
-   $formCardValidate = $('#form-dard-validate');
-   
-   
+$(document).ready(() => {
+  const visa = 'assets/img/visa.png';
+  const mastercard = 'assets/img/mastercad.png';
+  const number = /^([0-9])*$/;
 
 
+  $formCardValidate = $('#form-dard-validate');
+  $typeOfCard = $('#type-card');
+  $cardNumber = $('#cn');
+  $expiryDate = $('#exp');
+  $cvv = $('#cvv');
+  $name = $('#name');
+  $buttonPay = $('#btn-pay');
+
+  let validateNumber = false;
+
+  let validateNumberCard = () => {
+    let numb = $cardNumber.val();
+    if (numb && number.test(numb) && numb.length === 16) {
+      let total = 0;
+      let arrNumberOfCard = numb.split('').reverse();
+
+      arrNumberOfCard.forEach((element, i) => {
+        if (i % 2 !== 0) {
+          let itemSelect = parseInt(arrNumberOfCard[i]) * 2;
+          if (itemSelect >= 10) {
+            let digitInitial = parseInt(itemSelect / 10);
+            let digitFinal = itemSelect % 10;
+            let itemFinal = digitInitial + digitFinal;
+            arrNumberOfCard[i] = itemFinal;
+          } else {
+            let otherElement = parseInt(arrNumberOfCard[i]) * 2;
+            arrNumberOfCard[i] = otherElement;
+          }
+        }
+      });
+
+      arrNumberOfCard.forEach((element, j) => {
+        total += parseInt(arrNumberOfCard[j]);
+      });
+
+      if (total > 0 && total % 10 === 0) {
+        validateNumber = true;
+        if (numb.match(/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/)) {
+          $typeOfCard.attr('src', visa);
+        }
+        if (numb.match(/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/)) {
+          $typeOfCard.attr('src', mastercard);
+        }
+      } else {
+        validateNumber = false;
+        $typeOfCard.attr('src', '');
+      }
+    } else {
+      validateNumber = false;
+      $typeOfCard.attr('src', '');
+    }
+
+  };
+
+
+  const isNameValid = () => {
+    var PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
+    return PATERNNAME.test($name.val());
+  }
+
+  const areAllValidationsPassing = () => {
+    return isNameValid();
+  }
+
+  const activeButton = () => {
+    $buttonPay.attr('disabled', false);
+  }
+
+
+  $cardNumber.focus();
+
+  $cardNumber
+    .focus()
+    .on('keyup', validateNumberCard)
+    .on('keyup', activeButton);
+
+  $name
+    .focus()
+    .on('keyup', isNameValid)
+    .on('keyup', activeButton);
+
+  $expiryDate
+    .focus()
+    .on('keyup', )
+    .on('keyup', );
+
+  $cvv
+    .on('keyup', )
+    .on('keyup', );
+
+  const activeButton = () => {
+    if (validateNumCard && isNameValid()) {
+      activeButton();
+    }
+  }
 
 });
