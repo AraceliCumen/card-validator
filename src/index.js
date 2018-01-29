@@ -1,20 +1,16 @@
-// let total = (a, b) => console.log(a + b);
-
-// let pot = k => console.log(k * k);
-
-// pot(3);
-
-// total(1, 2);
-// total(2, 5);
-
 $(document).ready(() => {
+  // Variables para las imágenes de los tipos de tarjetas
+  // Imágen tarjeta Visa
   const visa = 'assets/img/visa.png';
+  // Imágen tarjeta Mastercard
   const mastercard = 'assets/img/mastercad.png';
+  // Imágen Tarjeta American expres
   const number = /^([0-9])*$/;
 
 
   $formCardValidate = $('#form-dard-validate');
   $typeOfCard = $('#type-card');
+
   $cardNumber = $('#cn');
   $expiryDate = $('#exp');
   $cvv = $('#cvv');
@@ -64,21 +60,19 @@ $(document).ready(() => {
       validateNumber = false;
       $typeOfCard.attr('src', '');
     }
-
   };
 
 
   const isNameValid = () => {
     var PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
     return PATERNNAME.test($name.val());
-  }
+  };
 
   const areAllValidationsPassing = () => {
     return isNameValid();
-  }
+  };
 
   const activeButton = () => {
     $buttonPay.attr('disabled', false);
-  }
-
+  };
 });
