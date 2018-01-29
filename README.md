@@ -6,13 +6,52 @@
 
 ***
 
+## Objetivo
+
 El plugin debe recibir una referencia a un elemento del DOM que contenga
 `<input>`s con los siguientes nombres (atributo `name`):
 
 * `cn` (Card Number): El número de la tarjeta de crédito
 * `exp` (Expiry Date): Fecha de expiración
 * `cvv` (Card Verification Value): Código de validación de 3 dígitos
-* `name`: Nombre completo como aparece en la tarjeta
+* `name`: Nombre completo como aparece en la tarjeta  
+
+## Planificación  
+
+Se implementa por etapas las tareas establecidas por semanas:
+
+#### ETAPA 1
+
+* Formar equipo.
+* Elegir reto.
+* Hacer fork de reto modelo o crear nuevo repo si has propuesto un reto no propuesto por Laboratoria.
+* Escribir primera versión del `README.md` con una descripción general de la librería así como ejemplos (snippets) de uso y configuración (si fuera necesario).
+* Crear issues y milestones que sirvan como hoja de ruta (roadmap)
+* Inicializar proyecto con `npm init` y `git init`.
+* Crear `index.html` con ejemplo principal de uso.
+
+#### ETAPA 2
+
+* Agregar tests que describan la `API` de tu librería y los casos de uso esperados.
+* Implementar funcionalidad esencial.
+* Hacer code review con compañeras e instructores.
+
+#### ETAPA 3
+
+* Completar implementación de librería y ejemplo principal (usando la librería).
+* Hacer code review con compañeras e instructores.
+* Preparar demo/presentación.
+* Publicar el ejemplo principal (`index.html`) en GitHub pages.
+
+**Herramienta de planificación - TRELLO**
+
+![](assets/img/trello.png)  
+
+## Herramientas  
+
+* Materialize (Framework).
+* jQuery (Librería JS).
+* Babel (transpilador).
 
 ## Ejemplo
 
