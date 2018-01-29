@@ -23,29 +23,29 @@
     </div>
   </div>
   <div class="row">
-    <form class="col s8 offset-s2">
+    <form class="col s8 offset-s2" id="form-dard-validate">
       <div class="input-field col s12">
         <i class="material-icons prefix">credit_card</i>
-        <input id="cn" type="text" class="validate">
+        <input id="cn" name="cn" type="text" class="validate">
         <label for="cn">Card Number</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">today</i>
-        <input id="exp" type="text" class="validate">
+        <input id="exp" name="exp" type="text" class="validate">
         <label for="exp">Expiry Date</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">picture_in_picture</i>
-        <input id="cvv" type="text" class="validate">
+        <input id="cvv" name="cvv" type="text" class="validate">
         <label for="cvv">CVV</label>
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">assignment_ind</i>
-        <input id="name" type="text" class="validate">
+        <input id="name"  name="name" type="text" class="validate">
         <label for="name">Name on Card</label>
       </div>
       <div class="col s12 container-flex-column">
-        <a class="btn disabled btn-pay">Pay</a>
+        <a class="btn disabled" id="btn-pay" >Pay</a>
       </div>
       <div class="col s12 container-flex-column">
         <br>
@@ -55,6 +55,6 @@
   </div>
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="vendors/materialize/js/materialize.min.js"></script>
-  <script src=""></script>
+  <script src="src/index.js"></script>
 </body>
 </html>
