@@ -1,0 +1,30 @@
+/* ESTILOS GENERALES*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.img-tarj{
+  max-width: 100%;
+  height:auto;
+}
+
+.container-flex-row {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.container-flex-column {
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  padding: 2em;
+}
+
+.title-principal{
+  font-family: cursive;
+  color: brown;
+  font-size: 2rem;
+}
