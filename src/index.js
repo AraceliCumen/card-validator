@@ -81,32 +81,4 @@ $(document).ready(() => {
     $buttonPay.attr('disabled', false);
   }
 
-
-  $cardNumber.focus();
-
-  $cardNumber
-    .focus()
-    .on('keyup', validateNumberCard)
-    .on('keyup', activeButton);
-
-  $name
-    .focus()
-    .on('keyup', isNameValid)
-    .on('keyup', activeButton);
-
-  $expiryDate
-    .focus()
-    .on('keyup', )
-    .on('keyup', );
-
-  $cvv
-    .on('keyup', )
-    .on('keyup', );
-
-  const activeButton = () => {
-    if (validateNumCard && isNameValid()) {
-      activeButton();
-    }
-  }
-
 });
