@@ -59,10 +59,12 @@
         }
       } else {
         validateNumber = false;
+        alert('Usted no esta ingresando un numero de tarjeta valida');
         $typeOfCard.attr('src', '');
       }
     } else {
       validateNumber = false;
+      alert('Usted no esta ingresando un numero de tarjeta valida');
       $typeOfCard.attr('src', '');
     }
   };
