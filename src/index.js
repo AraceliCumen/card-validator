@@ -7,12 +7,19 @@
   const americanexpres = '../public/assets//img/aex.png'
   // EXPRESIONES REGURALES PARA VALIDAR LOS NUMEROS DE LAS TARJETAS DE CREDITO
   // Tarjeta  visa
-  const numberVisa = /^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/;
+  const numberVisa = /^4\d{12}(\d{3})?$/;
   // Tarjeta Mastercad 
   const numberMastercard = /5[1-5][0-9]{14}$/;
   // Tarjeta American Express
   const numberAmericanExpress = /^3[47][0-9]{13}$/;
+  // EXPRESION REGULAR PARA VALIDAR MES
+  const regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
+  // EXPRESION REGULAR PARA VALIDAR ANIO
+  const regYear = /^18|19|20|21|22|23|24|25|26|27|28|29|30|31$/;
+  // EXPRESION REGULAR PARA VALIDAR CVV
+  const regCVV = /^[0-9]{3,3}$/;
 
+  
   // EXPRESION REGULAR PARA VALIDAR NUMERO
   const number = /^([0-9])*$/;
 
@@ -20,9 +27,11 @@
   const PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
 
   let validateNumber = false;
+  let validateName = false;
+  let
   
   // Algoritmo de Luhn para validar Tarjeta de credito
-  let validateNumberCard = (numb) => {
+  const validateNumberCard = (numb,typeOfCard) => {
     if (numb && number.test(numb) && numb.length === 16) {
       let total = 0;
       let arrNumberOfCard = numb.split('').reverse();
@@ -49,36 +58,49 @@
       if (total > 0 && total % 10 === 0) {
         validateNumber = true;
         if (numb.match(numberVisa)) {
-          $typeOfCard.attr('src', visa);
+          typeOfCard.attr('src', visa);
         }
         if (numb.match(numberMastercard)) {
-          $typeOfCard.attr('src', mastercard);
+          typeOfCard.attr('src', mastercard);
         }
         if(numb.match(numberMastercard)){
-          $typeOfCard.attr('src', americanexpres);
+          typeOfCard.attr('src', americanexpres);
         }
       } else {
         validateNumber = false;
         alert('Usted no esta ingresando un numero de tarjeta valida');
-        $typeOfCard.attr('src', '');
+        typeOfCard.attr('src', '');
       }
     } else {
       validateNumber = false;
       alert('Usted no esta ingresando un numero de tarjeta valida');
-      $typeOfCard.attr('src', '');
+      typeOfCard.attr('src', '');
     }
   };
 
+  const isDateValid = (date) => {
 
-  const isNameValid = () => {
-    var PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
-    return PATERNNAME.test($name.val());
+  }
+
+  const isCvvValid = (cvv) => {
+
+  }
+  
+
+  const isNameValid = (name) => {
+    return PATERNNAME.test(name.value);
+    if(PATERNNAME.test(name.value)){
+      validateName = true;
+    }else{
+      validateName = false;
+      alert('Usted no esta ingresando un nombre no valido');
+    }
   };
 
-  const areAllValidationsPassing = () => {
-    return isNameValid();
+  const activeButton = (button) => {
+    button.attr('disabled', 'disabled');
   };
 
-  const activeButton = () => {
-    $buttonPay.attr('disabled', false);
-  };
+
+
+
