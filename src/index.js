@@ -1,26 +1,28 @@
-$(document).ready(() => {
-  // Variables para las imágenes de los tipos de tarjetas
+  // VARIABLES PARA JALAR IMAGENES DE TARJETAS
   // Imágen tarjeta Visa
-  const visa = 'assets/img/visa.png';
+  const visa = '../public/assets/img/visa.png';
   // Imágen tarjeta Mastercard
   const mastercard = 'assets/img/mastercad.png';
   // Imágen Tarjeta American expres
+  const americanexpres = '../public/assets//img/aex.png'
+  // EXPRESIONES REGURALES PARA VALIDAR LOS NUMEROS DE LAS TARJETAS DE CREDITO
+  // Tarjeta  visa
+  const numberVisa = /^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/;
+  // Tarjeta Mastercad 
+  const numberMastercard = /5[1-5][0-9]{14}$/;
+  // Tarjeta American Express
+  const numberAmericanExpress = /^3[47][0-9]{13}$/;
+
+  // EXPRESION REGULAR PARA VALIDAR NUMERO
   const number = /^([0-9])*$/;
 
-
-  $formCardValidate = $('#form-dard-validate');
-  $typeOfCard = $('#type-card');
-
-  $cardNumber = $('#cn');
-  $expiryDate = $('#exp');
-  $cvv = $('#cvv');
-  $name = $('#name');
-  $buttonPay = $('#btn-pay');
+  // EXPRESION REGULAR PARA VALIDAR NOMBRE
+  const PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
 
   let validateNumber = false;
-
-  let validateNumberCard = () => {
-    let numb = $cardNumber.val();
+  
+  // Algoritmo de Luhn para validar Tarjeta de credito
+  let validateNumberCard = (numb) => {
     if (numb && number.test(numb) && numb.length === 16) {
       let total = 0;
       let arrNumberOfCard = numb.split('').reverse();
@@ -46,11 +48,14 @@ $(document).ready(() => {
 
       if (total > 0 && total % 10 === 0) {
         validateNumber = true;
-        if (numb.match(/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/)) {
+        if (numb.match(numberVisa)) {
           $typeOfCard.attr('src', visa);
         }
-        if (numb.match(/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/)) {
+        if (numb.match(numberMastercard)) {
           $typeOfCard.attr('src', mastercard);
+        }
+        if(numb.match(numberMastercard)){
+          $typeOfCard.attr('src', americanexpres);
         }
       } else {
         validateNumber = false;
@@ -75,4 +80,3 @@ $(document).ready(() => {
   const activeButton = () => {
     $buttonPay.attr('disabled', false);
   };
-});

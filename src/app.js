@@ -1,9 +1,16 @@
-let numer = (a,b,c)=> console.log(a+b*c);
+$(document).ready(() => {
 
-let sum = (j,k) => console.log(j+k);
 
-let sum2 = (j, k, m) => console.log(j + k + m);
 
-let prod = (a, b) => console.log(a*b);
-
-let prod1 = (at, bt) => console.log(at/bt);
+    $formCardValidate = $('#form-dard-validate');
+    $typeOfCard = $('#type-card');
+  
+    $cardNumber = $('#cn');
+    $expiryDate = $('#exp');
+    $cvv = $('#cvv');
+    $name = $('#name');
+    $buttonPay = $('#btn-pay');
+  
+    
+  });
+  
