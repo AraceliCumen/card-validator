@@ -26,11 +26,16 @@
   // EXPRESION REGULAR PARA VALIDAR NOMBRE
   const PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
 
+  //  VARIABLES PARA LA VALIDACION 
   let validateNumber = false;
+  let validateDate = false;
+  let validateCVV = false;
   let validateName = false;
-  let
-  
+
+  // VALIDAR NUMERO DE TARJETA
   // Algoritmo de Luhn para validar Tarjeta de credito
+  // numb--> sera el valor del imput y 
+  // typeOfCard --> sera la imagen que salga cuando se valide el imput, esta en el html del index
   const validateNumberCard = (numb,typeOfCard) => {
     if (numb && number.test(numb) && numb.length === 16) {
       let total = 0;
@@ -78,17 +83,28 @@
     }
   };
 
-  const isDateValid = (date) => {
-
+  // VALIDAR FECHA
+  // month --> sera el mes del input de la fecha ingresa, separar con split y separar mes de anio
+  // year --> la otra parte del input
+  const isDateValid = (month,year) => {
+    if(regMonth.test(month) && regYear.test(year)){
+      validateDate = true;
+    }else{
+      validateDate = false;
+    }
   }
 
   const isCvvValid = (cvv) => {
-
+    if(regCVV.test(cvv)){
+      validateCVV = true;
+    } else{
+      validateCVV = false;
+    }
   }
   
-
+  // VALIDAR NOMBRE
+  // name --> sera el valor del input de nombre
   const isNameValid = (name) => {
-    return PATERNNAME.test(name.value);
     if(PATERNNAME.test(name.value)){
       validateName = true;
     }else{
@@ -97,7 +113,12 @@
     }
   };
 
+  // ACTIVAR BUTTON
+  // button --> sera el el boton del form
   const activeButton = (button) => {
+    if( validateNumber === true && validateDate === true && validateCVV === true && validateName === true )
+    button.removeAttr('disabled');
+    else 
     button.attr('disabled', 'disabled');
   };
 
