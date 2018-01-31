@@ -21,6 +21,9 @@ $cvv.on('keyup', function () {
   validateCvv($cvv);
 });
 
+$expiryDate.on('keyup', function () {
+  isDateValid($expiryDate);
+});
 // function areAllValidationsPassing(){
 //   if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
 //     console.log('todas estan validas');

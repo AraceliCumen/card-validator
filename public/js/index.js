@@ -157,14 +157,18 @@ var validateCvv = function validateCvv(cvv) {
 // month --> sera el mes del input de la fecha ingresa, separar con split y separar mes de anio
 // year --> la otra parte del input
 var isDateValid = function isDateValid(date) {
-  month = date.slice(0, 2);
-  year = date.slice(3, 5);
+  date = $('#exp').val();
+  month = parseInt(date.slice(0, 2));
+  year = parseInt(date.slice(2, 5));
   if (regMonth.test(month) && regYear.test(year)) {
+    console.log('validate date');
     validateDate = true;
     $('#exp').addClass('success');
     $('#exp').removeClass('error');
+    return true;
   } else {
     validateDate = false;
+    console.log("unvalidate date");
     $('#exp').addClass('error');
     $('#exp').removeClass('success');
   }
