@@ -12,7 +12,7 @@ $cardNumber.on('keyup', ()=>{
 });
 
 $name.on('keyup', ()=> {
-  isNameValid($name)
+  isNameValid($name);
 });
 
 $cvv.on('keyup', () => {
