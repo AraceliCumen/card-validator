@@ -179,14 +179,14 @@ const isDateValid = (date) => {
 
 // activeButton($buttonPay);
 
-const activeButton = button => {
-  if (
-    validateNumber === true &&
-    validateDate === true &&
-    validateCVV === true &&
-    validateName === true
-  )
-    button.removeAttr('disabled');
-  else button.attr('disabled', 'disabled');
-};
+// const activeButton = button => {
+//   if (
+//     validateNumber === true &&
+//     validateDate === true &&
+//     validateCVV === true &&
+//     validateName === true
+//   )
+//     button.removeAttr('disabled');
+//   else button.attr('disabled', 'disabled');
+// };
 

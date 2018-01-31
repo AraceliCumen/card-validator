@@ -6,7 +6,7 @@ var visa = '../public/assets/img/visa.png';
 // Imágen tarjeta Mastercard
 var mastercard = '../public/assets/img/mastercad.png';
 // Imágen Tarjeta American expres
-var americanexpres = '../public/assets//img/aex.png';
+var americanexpres = '../public/assets/img/aex.png';
 // EXPRESIONES REGURALES PARA VALIDAR LOS NUMEROS DE LAS TARJETAS DE CREDITO
 // Tarjeta  visa
 var numberVisa = /^4\d{12}(\d{3})?$/;
@@ -33,27 +33,25 @@ var validateDate = false;
 var validateCVV = false;
 var validateName = false;
 
-// 
-
+$buttonPay = $('#btn-pay');
 
 var activeButton = function activeButton(button) {
   if (validateNumber === true &&
   // validateDate === true &&
-  validateCVV === true && validateName === true) {
-    button.removeAttr('disabled');
+  validateCVV === true && validateName === true) button.removeAttr('disabled');
   // else {
   //   button.attr("disabled");
   // }
-  }
 };
 
 var validateNumberCard = function validateNumberCard(numb, typecard) {
   numb = $('#cn').val();
+  // if (numb && number.test(numb) && numb.length === 16) {
   if (number.test(numb) && numb.length === 16) {
     var total = 0;
     var arrNumberOfCard = numb.split('').reverse();
 
-    arrNumberOfCard.forEach(function(element, i) {
+    arrNumberOfCard.forEach(function (element, i) {
       if (i % 2 !== 0) {
         var itemSelect = parseInt(arrNumberOfCard[i]) * 2;
         if (itemSelect >= 10) {
@@ -104,6 +102,7 @@ var validateNumberCard = function validateNumberCard(numb, typecard) {
     $('#cn').removeClass('success');
   }
   // areAllValidationsPassing();
+  activeButton();
 };
 
 // VALIDAR NOMBRE
@@ -123,6 +122,7 @@ var isNameValid = function isNameValid(name) {
     $('#name').removeClass('success');
   }
   // areAllValidationsPassing();
+  activeButton();
 };
 
 var validateCvv = function validateCvv(cvv) {
@@ -139,6 +139,7 @@ var validateCvv = function validateCvv(cvv) {
     $('#cvv').removeClass('success');
   }
   // areAllValidationsPassing();
+  activeButton();
 };
 
 // const areAllValidationsPassing = () => {
@@ -155,15 +156,32 @@ var validateCvv = function validateCvv(cvv) {
 // VALIDAR FECHA
 // month --> sera el mes del input de la fecha ingresa, separar con split y separar mes de anio
 // year --> la otra parte del input
-// const isDateValid = (month,year) => {
-//   if(regMonth.test(month) && regYear.test(year)){
-//     validateDate = true;
-//   }else{
-//     validateDate = false;
-//   }
-// }
+var isDateValid = function isDateValid(date) {
+  month = date.slice(0, 2);
+  year = date.slice(3, 5);
+  if (regMonth.test(month) && regYear.test(year)) {
+    validateDate = true;
+    $('#exp').addClass('success');
+    $('#exp').removeClass('error');
+  } else {
+    validateDate = false;
+    $('#exp').addClass('error');
+    $('#exp').removeClass('success');
+  }
+};
 
 // ACTIVAR BUTTON
 // button --> sera el el boton del form
 
 // activeButton($buttonPay);
+
+// const activeButton = button => {
+//   if (
+//     validateNumber === true &&
+//     validateDate === true &&
+//     validateCVV === true &&
+//     validateName === true
+//   )
+//     button.removeAttr('disabled');
+//   else button.attr('disabled', 'disabled');
+// };
