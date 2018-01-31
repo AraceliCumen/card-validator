@@ -1,9 +1,27 @@
-let numer = (a,b,c)=> console.log(a+b*c);
+$formCardValidate = $('#form-dard-validate'); 
+$typeOfCard = $('#type-card');
 
-let sum = (j,k) => console.log(j+k);
+$cardNumber = $('#cn');
+$expiryDate = $('#exp');
+$cvv = $('#cvv');
+$name = $('#name');
+$buttonPay = $('#btn-pay');
 
-let sum2 = (j, k, m) => console.log(j + k + m);
+$cardNumber.on('keyup', ()=>{
+  validateNumberCard($cardNumber, $typeOfCard);
+});
 
-let prod = (a, b) => console.log(a*b);
+$name.on('keyup', ()=> {
+  isNameValid($name)
+});
 
-let prod1 = (at, bt) => console.log(at/bt);
+$cvv.on('keyup', () => {
+  validateCvv($cvv);
+});
+
+
+// if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
+//   console.log('todas estan validas');
+//   $buttonPay.removeAttr('disabled'); 
+// }
+

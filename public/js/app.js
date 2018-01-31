@@ -19,3 +19,7 @@ var prod = function prod(a, b) {
 var prod1 = function prod1(at, bt) {
   return console.log(at / bt);
 };
+
+var prod2 = function prod2(a1, b1) {
+  return console.log(a1 * b1);
+};
