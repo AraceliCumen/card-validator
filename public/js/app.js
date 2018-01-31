@@ -1,25 +1,31 @@
-"use strict";
+'use strict';
 
-var numer = function numer(a, b, c) {
-  return console.log(a + b * c);
-};
+$formCardValidate = $('#form-dard-validate');
+$typeOfCard = $('#type-card');
 
-var sum = function sum(j, k) {
-  return console.log(j + k);
-};
+$cardNumber = $('#cn');
+$expiryDate = $('#exp');
+$cvv = $('#cvv');
+$name = $('#name');
+$buttonPay = $('#btn-pay');
 
-var sum2 = function sum2(j, k, m) {
-  return console.log(j + k + m);
-};
+$cardNumber.on('keyup', function () {
+  validateNumberCard($cardNumber, $typeOfCard);
+});
 
-var prod = function prod(a, b) {
-  return console.log(a * b);
-};
+$name.on('keyup', function () {
+  isNameValid($name);
+});
 
-var prod1 = function prod1(at, bt) {
-  return console.log(at / bt);
-};
+$cvv.on('keyup', function () {
+  validateCvv($cvv);
+});
 
-var prod2 = function prod2(a1, b1) {
-  return console.log(a1 * b1);
-};
+// function areAllValidationsPassing(){
+//   if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
+//     console.log('todas estan validas');
+//     $buttonPay.removeAttr('disabled'); 
+//   }
+// }
+
+// activeButton($buttonPay);

@@ -19,9 +19,12 @@ $cvv.on('keyup', () => {
   validateCvv($cvv);
 });
 
-
-// if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
-//   console.log('todas estan validas');
-//   $buttonPay.removeAttr('disabled'); 
+// function areAllValidationsPassing(){
+//   if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
+//     console.log('todas estan validas');
+//     $buttonPay.removeAttr('disabled'); 
+//   }
 // }
+
+// activeButton($buttonPay);
 

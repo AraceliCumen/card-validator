@@ -33,6 +33,20 @@ let validateName = false;
 
 $buttonPay = $('#btn-pay');
 
+const activeButton = button => {
+  if (
+    validateNumber === true &&
+    // validateDate === true &&
+    validateCVV === true &&
+    validateName === true
+  )
+    button.removeAttr('disabled');
+  // else {
+  //   button.attr("disabled");
+  // }
+};
+
+
 const validateNumberCard = (numb, typecard) => {
   numb = $('#cn').val();
   // if (numb && number.test(numb) && numb.length === 16) {
@@ -77,6 +91,7 @@ const validateNumberCard = (numb, typecard) => {
       //   typecard.attr('src', '');
       // }
       return true;
+      activeButton($buttonPay);
     } else {
       validateNumber = false;
       typecard.attr('src', '');
@@ -89,7 +104,7 @@ const validateNumberCard = (numb, typecard) => {
     $('#cn').addClass('error');
     $('#cn').removeClass('success');
   }
-  // activeButton();
+  // areAllValidationsPassing();
 };
 
 // VALIDAR NOMBRE
@@ -98,34 +113,40 @@ const isNameValid = name => {
   var PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
   name = $('#name').val();
   if (PATERNNAME.test(name)) {
-    validateNumber = true;
+    validateName = true;
     $('#name').addClass('success');
     $('#name').removeClass('error');
     return true;
+    activeButton($buttonPay);
   } else {
-    validateNumber = false;
+    validateName = false;
     $('#name').addClass('error');
     $('#name').removeClass('success');
   }
-  // activeButton();
+  // areAllValidationsPassing();
+
 };
 
 const validateCvv = cvv => {
   cvv = $('#cvv').val();
   if (number.test(cvv) && cvv.length === 3) {
+    validateCVV = true;
     $('#cvv').addClass('success');
     $('#cvv').removeClass('error');
     return true;
+    activeButton($buttonPay);
   } else {
+    validateCVV = false;
     $('#cvv').addClass('error');
     $('#cvv').removeClass('success');
   }
-  // activeButton();
+  // areAllValidationsPassing();
 };
 
 // const areAllValidationsPassing = () => {
 //   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {
-//     $buttonPay.attr('disabled', true);
+//     // $buttonPay.attr('disabled', true);
+//     $("#btn-pay").removeAttr("disabled"); 
 //   }
 // };
 
@@ -146,13 +167,6 @@ const validateCvv = cvv => {
 
 // ACTIVAR BUTTON
 // button --> sera el el boton del form
-const activeButton = button => {
-  if (
-    validateNumber === true &&
-    // validateDate === true &&
-    validateCVV === true &&
-    validateName === true
-  )
-    button.removeAttr('disabled');
-  else button.attr('disabled', 'disabled');
-};
+
+// activeButton($buttonPay);
+
