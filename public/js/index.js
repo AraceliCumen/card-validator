@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function () {
+$(document).ready(function() {
   // Variables para las imágenes de los tipos de tarjetas
   // Imágen tarjeta Visa
   var visa = 'assets/img/visa.png';
@@ -26,7 +26,7 @@ $(document).ready(function () {
       var total = 0;
       var arrNumberOfCard = numb.split('').reverse();
 
-      arrNumberOfCard.forEach(function (element, i) {
+      arrNumberOfCard.forEach(function(element, i) {
         if (i % 2 !== 0) {
           var itemSelect = parseInt(arrNumberOfCard[i]) * 2;
           if (itemSelect >= 10) {
@@ -41,7 +41,7 @@ $(document).ready(function () {
         }
       });
 
-      arrNumberOfCard.forEach(function (element, j) {
+      arrNumberOfCard.forEach(function(element, j) {
         total += parseInt(arrNumberOfCard[j]);
       });
 

@@ -4,7 +4,7 @@ const visa = '../public/assets/img/visa.png';
 // Imágen tarjeta Mastercard
 const mastercard = '../public/assets/img/mastercad.png';
 // Imágen Tarjeta American expres
-const americanexpres = '../public/assets//img/aex.png';
+const americanexpres = '../public/assets/img/aex.png';
 // EXPRESIONES REGURALES PARA VALIDAR LOS NUMEROS DE LAS TARJETAS DE CREDITO
 // Tarjeta  visa
 const numberVisa = /^4\d{12}(\d{3})?$/;
@@ -70,7 +70,7 @@ const validateNumberCard = (numb, typecard) => {
       }
       if (numb.match(numberMastercard)) {
         typecard.attr('src', americanexpres);
-      } 
+      }
       // else {
       //   validateNumber = false;
       //   console.log('no se acepta esa tarjeta');
@@ -89,7 +89,7 @@ const validateNumberCard = (numb, typecard) => {
     $('#cn').addClass('error');
     $('#cn').removeClass('success');
   }
-  // activeButton();
+  activeButton();
 };
 
 // VALIDAR NOMBRE
@@ -107,7 +107,7 @@ const isNameValid = name => {
     $('#name').addClass('error');
     $('#name').removeClass('success');
   }
-  // activeButton();
+  activeButton();
 };
 
 const validateCvv = cvv => {
@@ -120,7 +120,7 @@ const validateCvv = cvv => {
     $('#cvv').addClass('error');
     $('#cvv').removeClass('success');
   }
-  // activeButton();
+  activeButton();
 };
 
 // const areAllValidationsPassing = () => {
@@ -136,20 +136,26 @@ const validateCvv = cvv => {
 // VALIDAR FECHA
 // month --> sera el mes del input de la fecha ingresa, separar con split y separar mes de anio
 // year --> la otra parte del input
-// const isDateValid = (month,year) => {
-//   if(regMonth.test(month) && regYear.test(year)){
-//     validateDate = true;
-//   }else{
-//     validateDate = false;
-//   }
-// }
+const isDateValid = (date) => {
+  month = date.slice(0, 2);
+  year = date.slice(3, 5);
+  if (regMonth.test(month) && regYear.test(year)) {
+    validateDate = true;
+    $('#exp').addClass('success');
+    $('#exp').removeClass('error');
+  } else {
+    validateDate = false;
+    $('#exp').addClass('error');
+    $('#exp').removeClass('success');
+  }
+};
 
 // ACTIVAR BUTTON
 // button --> sera el el boton del form
 const activeButton = button => {
   if (
     validateNumber === true &&
-    // validateDate === true &&
+    validateDate === true &&
     validateCVV === true &&
     validateName === true
   )
