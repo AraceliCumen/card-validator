@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 $formCardValidate = $('#form-dard-validate');
 $typeOfCard = $('#type-card');

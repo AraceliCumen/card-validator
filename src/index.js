@@ -31,22 +31,6 @@ let validateDate = false;
 let validateCVV = false;
 let validateName = false;
 
-// $buttonPay = $('#btn-pay');
-
-const activeButton = button => {
-  if (
-    validateNumber === true &&
-    // validateDate === true &&
-    validateCVV === true &&
-    validateName === true
-  )
-    button.removeAttr('disabled');
-  // else {
-  //   button.attr('disabled');
-  // }
-};
-
-
 const validateNumberCard = (numb, typecard) => {
   numb = $('#cn').val();
   // if (numb && number.test(numb) && numb.length === 16) {
@@ -78,7 +62,6 @@ const validateNumberCard = (numb, typecard) => {
       $('#cn').removeClass('error');
       if (numb.match(numberVisa)) {
         typecard.attr('src', visa);
-        console.log('es visa');
       } 
       if (numb.match(numberMastercard)) {
         typecard.attr('src', mastercard);
@@ -86,13 +69,7 @@ const validateNumberCard = (numb, typecard) => {
       if (numb.match(numberAmericanExpress)) {
         typecard.attr('src', americanexpres);
       }
-      // else {
-      //   validateNumber = false;
-      //   console.log('no se acepta esa tarjeta');
-      //   typecard.attr('src', '');
-      // }
       return true;
-      activeButton($buttonPay);
     } else {
       validateNumber = false;
       typecard.attr('src', '');
@@ -105,8 +82,6 @@ const validateNumberCard = (numb, typecard) => {
     $('#cn').addClass('error');
     $('#cn').removeClass('success');
   }
-  // areAllValidationsPassing();
-  activeButton();
 };
 
 // VALIDAR NOMBRE
@@ -125,8 +100,6 @@ const isNameValid = name => {
     $('#name').addClass('error');
     $('#name').removeClass('success');
   }
-  // areAllValidationsPassing();
-  activeButton();
 };
 
 const validateCvv = cvv => {
@@ -142,9 +115,6 @@ const validateCvv = cvv => {
     $('#cvv').addClass('error');
     $('#cvv').removeClass('success');
   }
-  // areAllValidationsPassing();
-  activeButton();
-
 };
 
 // VALIDAR FECHA
@@ -186,7 +156,7 @@ const isDateValid = (date) => {
 
 // const areAllValidationsPassing = () => {
 //   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {
-//     // $buttonPay.attr('disabled', true);
+//     $buttonPay.attr('disabled', true);
 //     $('#btn-pay').removeAttr('disabled'); 
 //   }
 // };
@@ -194,3 +164,15 @@ const isDateValid = (date) => {
 // const activeButton = (btn) => {
 //   btn.attr('disabled', false);
 // };
+
+// const activeButton = button => {
+//   if (
+//     validateNumber === true &&
+//   validateDate === true &&
+//     validateCVV === true &&
+//     validateName === true
+//   )
+//     button.removeAttr("disabled");
+//  else {
+//     button.attr('disabled');
+//   }

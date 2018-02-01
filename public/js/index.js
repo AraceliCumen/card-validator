@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // VARIABLES PARA JALAR IMAGENES DE TARJETAS
 // Imágen tarjeta Visa
@@ -33,17 +33,6 @@ var validateDate = false;
 var validateCVV = false;
 var validateName = false;
 
-// $buttonPay = $('#btn-pay');
-
-var activeButton = function activeButton(button) {
-  if (validateNumber === true &&
-  // validateDate === true &&
-  validateCVV === true && validateName === true) button.removeAttr('disabled');
-  // else {
-  //   button.attr('disabled');
-  // }
-};
-
 var validateNumberCard = function validateNumberCard(numb, typecard) {
   numb = $('#cn').val();
   // if (numb && number.test(numb) && numb.length === 16) {
@@ -75,7 +64,6 @@ var validateNumberCard = function validateNumberCard(numb, typecard) {
       $('#cn').removeClass('error');
       if (numb.match(numberVisa)) {
         typecard.attr('src', visa);
-        console.log('es visa');
       }
       if (numb.match(numberMastercard)) {
         typecard.attr('src', mastercard);
@@ -83,13 +71,7 @@ var validateNumberCard = function validateNumberCard(numb, typecard) {
       if (numb.match(numberAmericanExpress)) {
         typecard.attr('src', americanexpres);
       }
-      // else {
-      //   validateNumber = false;
-      //   console.log('no se acepta esa tarjeta');
-      //   typecard.attr('src', '');
-      // }
       return true;
-      activeButton($buttonPay);
     } else {
       validateNumber = false;
       typecard.attr('src', '');
@@ -102,8 +84,6 @@ var validateNumberCard = function validateNumberCard(numb, typecard) {
     $('#cn').addClass('error');
     $('#cn').removeClass('success');
   }
-  // areAllValidationsPassing();
-  activeButton();
 };
 
 // VALIDAR NOMBRE
@@ -122,8 +102,6 @@ var isNameValid = function isNameValid(name) {
     $('#name').addClass('error');
     $('#name').removeClass('success');
   }
-  // areAllValidationsPassing();
-  activeButton();
 };
 
 var validateCvv = function validateCvv(cvv) {
@@ -139,8 +117,6 @@ var validateCvv = function validateCvv(cvv) {
     $('#cvv').addClass('error');
     $('#cvv').removeClass('success');
   }
-  // areAllValidationsPassing();
-  activeButton();
 };
 
 // VALIDAR FECHA
@@ -182,7 +158,7 @@ var isDateValid = function isDateValid(date) {
 
 // const areAllValidationsPassing = () => {
 //   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {
-//     // $buttonPay.attr('disabled', true);
+//     $buttonPay.attr('disabled', true);
 //     $('#btn-pay').removeAttr('disabled'); 
 //   }
 // };
@@ -190,3 +166,15 @@ var isDateValid = function isDateValid(date) {
 // const activeButton = (btn) => {
 //   btn.attr('disabled', false);
 // };
+
+// const activeButton = button => {
+//   if (
+//     validateNumber === true &&
+//   validateDate === true &&
+//     validateCVV === true &&
+//     validateName === true
+//   )
+//     button.removeAttr("disabled");
+//  else {
+//     button.attr('disabled');
+//   }
