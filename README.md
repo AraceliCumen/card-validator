@@ -96,39 +96,28 @@ $expiryDate.on('input', function () {
 
 Ingreso de datos  
 
-| Input Fecha de vencimiento       |Dato  Válido           |
-| --- |---|---|
+| Input Fecha de vencimiento  |Dato  Válido|
+| ---  |---|
 | `'10/19'`      | true |
 | `'10 19'`      | true      |
-| `'10/2019'`      | false      |
-| `'102019'`      | false     |
+| `'10/2019'`    | false      |
+| `'102019'`     | false     |
 ---
 
-Se implementa por etapas las tareas establecidas por semanas:
 
-#### ETAPA 1
+## Planificación  
 
-* Formar equipo.
-* Elegir reto.
-* Hacer fork de reto modelo o crear nuevo repo si has propuesto un reto no propuesto por Laboratoria.
-* Escribir primera versión del `README.md` con una descripción general de la librería así como ejemplos (snippets) de uso y configuración (si fuera necesario).
-* Crear issues y milestones que sirvan como hoja de ruta (roadmap)
-* Inicializar proyecto con `npm init` y `git init`.
-* Crear `index.html` con ejemplo principal de uso.
+* Elección de temática de librería:  Se realizó un analisis estadístico. Según datos de la SBS, hay 7,9 millones de tarjetahabientes activos en el sistema financiero a julio del 2017 (Perú).  
+Cada vez más personas emplean las tarjetas de crédito al momento de realizar compras, pagos de consumo u otros servicios online y diversas empresas estan iniciando la implementación de venta de sus productos mediante sus páginas web para lo cual un desarrollador verá la necesidad de contar con un validador de ingreso de datos de tarjeta.  
 
-#### ETAPA 2
+* Tareas desarrolladas por etapas (Observar ISUUES y MILESTONES)
 
-* Agregar tests que describan la `API` de tu librería y los casos de uso esperados.
-* Implementar funcionalidad esencial.
-* Hacer code review con compañeras e instructores.
 
-#### ETAPA 3
-
-* Completar implementación de librería y ejemplo principal (usando la librería).
-* Hacer code review con compañeras e instructores.
-* Preparar demo/presentación.
-* Publicar el ejemplo principal (`index.html`) en GitHub pages.
-
-**Herramienta de planificación - TRELLO**
+**Otra herramienta de planificación - TRELLO**
 
 ![](public/assets/img/trello.png)  
+  
+## Desarrolladoras
+
+* **Araceli Cueva:** [GitHub Account](hhttps://github.com/AraceliCumen).
+* **Alejandra Cabrera:** [GitHub Account](https://github.com/AlejandraCP).  
