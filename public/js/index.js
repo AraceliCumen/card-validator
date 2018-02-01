@@ -1,19 +1,19 @@
-'use strict';
+// 'use strict';
 
 // VARIABLES PARA JALAR IMAGENES DE TARJETAS
 // Imágen tarjeta Visa
 var visa = '../public/assets/img/visa.png';
 // Imágen tarjeta Mastercard
-var mastercard = '../public/assets/img/mastercad.png';
+var mastercard = '../public/assets/img/mastercard.png';
 // Imágen Tarjeta American expres
 var americanexpres = '../public/assets/img/aex.png';
 // EXPRESIONES REGURALES PARA VALIDAR LOS NUMEROS DE LAS TARJETAS DE CREDITO
 // Tarjeta  visa
 var numberVisa = /^4\d{12}(\d{3})?$/;
 // Tarjeta Mastercad
-var numberMastercard = /5[1-5][0-9]{14}$/;
+var numberMastercard = /^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$/;
 // Tarjeta American Express
-var numberAmericanExpress = /^3[47][0-9]{13}$/;
+var numberAmericanExpress = /^3[47][0-9]{5,}$/;
 // EXPRESION REGULAR PARA VALIDAR MES
 var regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
 // EXPRESION REGULAR PARA VALIDAR ANIO
@@ -33,21 +33,21 @@ var validateDate = false;
 var validateCVV = false;
 var validateName = false;
 
-$buttonPay = $('#btn-pay');
+// $buttonPay = $('#btn-pay');
 
 var activeButton = function activeButton(button) {
   if (validateNumber === true &&
   // validateDate === true &&
   validateCVV === true && validateName === true) button.removeAttr('disabled');
   // else {
-  //   button.attr("disabled");
+  //   button.attr('disabled');
   // }
 };
 
 var validateNumberCard = function validateNumberCard(numb, typecard) {
   numb = $('#cn').val();
   // if (numb && number.test(numb) && numb.length === 16) {
-  if (number.test(numb) && numb.length === 16) {
+  if (number.test(numb) && numb.length >= 15 || numb.length <= 16) {
     var total = 0;
     var arrNumberOfCard = numb.split('').reverse();
 
@@ -75,11 +75,12 @@ var validateNumberCard = function validateNumberCard(numb, typecard) {
       $('#cn').removeClass('error');
       if (numb.match(numberVisa)) {
         typecard.attr('src', visa);
+        console.log('es visa');
       }
       if (numb.match(numberMastercard)) {
         typecard.attr('src', mastercard);
       }
-      if (numb.match(numberMastercard)) {
+      if (numb.match(numberAmericanExpress)) {
         typecard.attr('src', americanexpres);
       }
       // else {
@@ -142,24 +143,13 @@ var validateCvv = function validateCvv(cvv) {
   activeButton();
 };
 
-// const areAllValidationsPassing = () => {
-//   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {
-//     // $buttonPay.attr('disabled', true);
-//     $("#btn-pay").removeAttr("disabled"); 
-//   }
-// };
-
-// const activeButton = (btn) => {
-//   btn.attr('disabled', false);
-// };
-
 // VALIDAR FECHA
 // month --> sera el mes del input de la fecha ingresa, separar con split y separar mes de anio
 // year --> la otra parte del input
 var isDateValid = function isDateValid(date) {
   date = $('#exp').val();
-  month = parseInt(date.slice(0, 2));
-  year = parseInt(date.slice(2, 5));
+  var month = parseInt(date.slice(0, 2));
+  var year = parseInt(date.slice(2, 5));
   if (regMonth.test(month) && regYear.test(year)) {
     console.log('validate date');
     validateDate = true;
@@ -168,7 +158,7 @@ var isDateValid = function isDateValid(date) {
     return true;
   } else {
     validateDate = false;
-    console.log("unvalidate date");
+    console.log('unvalidate date');
     $('#exp').addClass('error');
     $('#exp').removeClass('success');
   }
@@ -188,4 +178,15 @@ var isDateValid = function isDateValid(date) {
 //   )
 //     button.removeAttr('disabled');
 //   else button.attr('disabled', 'disabled');
+// };
+
+// const areAllValidationsPassing = () => {
+//   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {
+//     // $buttonPay.attr('disabled', true);
+//     $('#btn-pay').removeAttr('disabled'); 
+//   }
+// };
+
+// const activeButton = (btn) => {
+//   btn.attr('disabled', false);
 // };

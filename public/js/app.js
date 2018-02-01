@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 $formCardValidate = $('#form-dard-validate');
 $typeOfCard = $('#type-card');
@@ -24,11 +24,3 @@ $cvv.on('keyup', function () {
 $expiryDate.on('keyup', function () {
   isDateValid($expiryDate);
 });
-// function areAllValidationsPassing(){
-//   if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
-//     console.log('todas estan validas');
-//     $buttonPay.removeAttr('disabled'); 
-//   }
-// }
-
-// activeButton($buttonPay);

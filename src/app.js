@@ -23,12 +23,5 @@ $expiryDate.on('keyup', () =>{
   isDateValid($expiryDate);
 
 });
-// function areAllValidationsPassing(){
-//   if (validateNumberCard($cardNumber, $typeOfCard) && isNameValid($name) && validateCvv($cvv)) {
-//     console.log('todas estan validas');
-//     $buttonPay.removeAttr('disabled'); 
-//   }
-// }
 
-// activeButton($buttonPay);
 
