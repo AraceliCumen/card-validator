@@ -89,7 +89,7 @@ const validateNumberCard = (numb, typecard) => {
 const isNameValid = name => {
   var PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
   name = $('#name').val();
-  if (PATERNNAME.test(name)) {
+  if (PATERNNAME.test(name) && name.length > 6) {
     validateName = true;
     $('#name').addClass('success');
     $('#name').removeClass('error');
@@ -141,18 +141,18 @@ const isDateValid = (date) => {
 // ACTIVAR BUTTON
 // button --> sera el el boton del form
 
+const activeButton = button => {
+  if (
+    validateNumber === true &&
+    validateDate === true &&
+    validateCVV === true &&
+    validateName === true
+  ) {
+    button.removeAttr("disabled");
+  }
+};
 // activeButton($buttonPay);
 
-// const activeButton = button => {
-//   if (
-//     validateNumber === true &&
-//     validateDate === true &&
-//     validateCVV === true &&
-//     validateName === true
-//   )
-//     button.removeAttr('disabled');
-//   else button.attr('disabled', 'disabled');
-// };
 
 // const areAllValidationsPassing = () => {
 //   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {

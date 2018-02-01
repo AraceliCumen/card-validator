@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 // VARIABLES PARA JALAR IMAGENES DE TARJETAS
 // Imágen tarjeta Visa
@@ -91,7 +91,7 @@ var validateNumberCard = function validateNumberCard(numb, typecard) {
 var isNameValid = function isNameValid(name) {
   var PATERNNAME = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
   name = $('#name').val();
-  if (PATERNNAME.test(name)) {
+  if (PATERNNAME.test(name) && name.length > 6) {
     validateName = true;
     $('#name').addClass('success');
     $('#name').removeClass('error');
@@ -143,18 +143,13 @@ var isDateValid = function isDateValid(date) {
 // ACTIVAR BUTTON
 // button --> sera el el boton del form
 
+var activeButton = function activeButton(button) {
+  if (validateNumber === true && validateDate === true && validateCVV === true && validateName === true) {
+    button.removeAttr("disabled");
+  }
+};
 // activeButton($buttonPay);
 
-// const activeButton = button => {
-//   if (
-//     validateNumber === true &&
-//     validateDate === true &&
-//     validateCVV === true &&
-//     validateName === true
-//   )
-//     button.removeAttr('disabled');
-//   else button.attr('disabled', 'disabled');
-// };
 
 // const areAllValidationsPassing = () => {
 //   if (validateNumberCard(numb, typecard) && isNameValid(name) && validateCvv(cvv)) {
