@@ -1,28 +1,28 @@
-$formCardValidate = $('#form-dard-validate'); 
-$typeOfCard = $('#type-card');
+let $formCardValidate = $('#form-dard-validate'); 
+let  $typeOfCard = $('#type-card');
 
-$cardNumber = $('#cn');
-$expiryDate = $('#exp');
-$cvv = $('#cvv');
-$name = $('#name');
-$buttonPay = $('#btn-pay');
+let $cardNumber = $('#cn');
+let $expiryDate = $('#exp');
+let $cvv = $('#cvv');
+let $name = $('#name');
+let $buttonPay = $('#btn-pay');
 
-$cardNumber.on('keyup', ()=>{
+$cardNumber.on('input', ()=>{
   validateNumberCard($cardNumber, $typeOfCard);
   activeButton($buttonPay);
 });
 
-$name.on('keyup', () => {
+$name.on('input', () => {
   isNameValid($name);
   activeButton($buttonPay);
 });
 
-$cvv.on('keyup', () => {
+$cvv.on('input', () => {
   validateCvv($cvv);
   activeButton($buttonPay);
 });
 
-$expiryDate.on('keyup', () =>{
+$expiryDate.on('input', () =>{
   isDateValid($expiryDate);
   activeButton($buttonPay);
 });

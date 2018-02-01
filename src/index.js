@@ -7,11 +7,11 @@ const mastercard = '../public/assets/img/mastercard.png';
 const americanexpres = '../public/assets/img/aex.png';
 // EXPRESIONES REGURALES PARA VALIDAR LOS NUMEROS DE LAS TARJETAS DE CREDITO
 // Tarjeta  visa
-const numberVisa = /^4\d{12}(\d{3})?$/;
+const regNumberVisa = /^4\d{12}(\d{3})?$/;
 // Tarjeta Mastercad
-const numberMastercard = /^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$/;
+const regNumberMastercard = /^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$/;
 // Tarjeta American Express
-const numberAmericanExpress = /^3[47][0-9]{5,}$/;
+const regNumberAmericanExpress = /^3[47][0-9]{5,}$/;
 // EXPRESION REGULAR PARA VALIDAR MES
 const regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
 // EXPRESION REGULAR PARA VALIDAR ANIO
@@ -60,13 +60,13 @@ const validateNumberCard = (numb, typecard) => {
       validateNumber = true;
       $('#cn').addClass('success');
       $('#cn').removeClass('error');
-      if (numb.match(numberVisa)) {
+      if (numb.match(regNumberVisa)) {
         typecard.attr('src', visa);
       } 
-      if (numb.match(numberMastercard)) {
+      if (numb.match(regNumberMastercard)) {
         typecard.attr('src', mastercard);
       }
-      if (numb.match(numberAmericanExpress)) {
+      if (numb.match(regNumberAmericanExpress)) {
         typecard.attr('src', americanexpres);
       }
       return true;
