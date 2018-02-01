@@ -9,21 +9,25 @@ let $buttonPay = $('#btn-pay');
 
 $cardNumber.on('input', ()=>{
   validateNumberCard($cardNumber, $typeOfCard);
+  funtionValidateNumberCardinData($cardNumber);
   activeButton($buttonPay);
 });
 
 $name.on('input', () => {
   isNameValid($name);
+  funtionValidateNumberCardinData($name);
   activeButton($buttonPay);
 });
 
 $cvv.on('input', () => {
   validateCvv($cvv);
+  funtionValidateCvvinData($cvv);
   activeButton($buttonPay);
 });
 
 $expiryDate.on('input', () =>{
   isDateValid($expiryDate);
+  funtionValidateExpinData($expiryDate);
   activeButton($buttonPay);
 });
 

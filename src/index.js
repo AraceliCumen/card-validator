@@ -122,8 +122,11 @@ const validateCvv = cvv => {
 // year --> la otra parte del input
 const isDateValid = (date) => {
   date = $('#exp').val();
+  console.log(date);
   let month = parseInt(date.slice(0, 2));
-  let year = parseInt(date.slice(2, 5));
+  console.log(month);
+  let year = parseInt(date.slice(3, 5));
+  console.log(year);
   if (regMonth.test(month) && regYear.test(year)) {
     console.log('validate date');
     validateDate = true;
