@@ -1,22 +1,108 @@
-# Valida datos de tarjetas de crédito
+# Card Validator
+>Producto Final: Library to Card Validation.
 
-* **Track:** _Common Core_
-* **Curso:** _JS Deep Dive: Crea tu propia librería usando JavaScript_
-* **Unidad:** _Producto final_
+**Card Validator** es una librería para la `validación del número de tarjeta`, `fecha de vencimiento`, `código de verificación (cvv)` y `nombre completo` que aparece en la tarjeta.  
 
-***
+Para la verificación del número de tarjeta se hace uso del algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm).
 
-## Objetivo
+---
+## Herramientas
+- HTML5.
+- CSS3
+- ECMAScript6
+- Babel
+- Node JS
+- NPM 
+- Jquery
+---
 
-El plugin debe recibir una referencia a un elemento del DOM que contenga
-`<input>`s con los siguientes nombres (atributo `name`):
+## Dependencias
+- jQuery
+---
+## Instalación  
 
-* `cn` (Card Number): El número de la tarjeta de crédito
-* `exp` (Expiry Date): Fecha de expiración
-* `cvv` (Card Verification Value): Código de validación de 3 dígitos
-* `name`: Nombre completo como aparece en la tarjeta  
+1. Usar Jquery (cdn). 
+   ```html
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    ```
+2. Descargar o clonar repositorio.  
+3. Agregar archivo public/js/index.js a su proyecto.  
+    ```html
+    <script type="text/javascript" src="js/index.js"></script>
+    ```
+* **Opción sin descargar archivo**  
+  ```html
+    <script type="text/javascript" src="https://aracelicumen.github.io/card-validator/public/js/index.js"></script>
+    ```  
 
-## Planificación  
+4. Cada input de ingreso de datos debe contener los siguientes ID.  
+
+```html
+<form id="form-card-validate">
+  <div class="form-group">
+    <label for="cn">Número de tarjeta</label>
+    <input id="cn"/>
+  </div>
+  <div class="form-group">
+    <label for="exp">Fecha de vencimiento</label>
+    <input id="exp"/>
+  </div>
+  <div class="form-group">
+    <label for="cvv">CVV</label>
+    <input id="cvv"/>
+  </div>
+  <div class="form-group">
+    <label for="name">Nombre completo</label>
+    <input id="name"/>
+  </div>
+  <input type="submit" value="Pagar" id="btn-pay"/>
+</form>
+```  
+---  
+
+## Uso  
+
+Llama a las siguientes funciones.  
+
+```js
+    
+var $formCardValidate = $('#form-card-validate');
+var $cardNumber = $('#cn');
+var $expiryDate = $('#exp');
+var $cvv = $('#cvv');
+var $name = $('#name');
+var $buttonPay = $('#btn-pay');
+
+$cardNumber.on('input', function () {
+  validateNumberCard($cardNumber, $typeOfCard);
+  activeButton($buttonPay);
+});
+
+$name.on('input', function () {
+  isNameValid($name);
+  activeButton($buttonPay);
+});
+
+$cvv.on('input', function () {
+  validateCvv($cvv);
+  activeButton($buttonPay);
+});
+
+$expiryDate.on('input', function () {
+  isDateValid($expiryDate);
+  activeButton($buttonPay);
+});
+```  
+
+Ingreso de datos  
+
+| Input Fecha de vencimiento       |Dato  Válido           |
+| --- |---|---|
+| `'10/19'`      | true |
+| `'10 19'`      | true      |
+| `'10/2019'`      | false      |
+| `'102019'`      | false     |
+---
 
 Se implementa por etapas las tareas establecidas por semanas:
 
@@ -46,50 +132,3 @@ Se implementa por etapas las tareas establecidas por semanas:
 **Herramienta de planificación - TRELLO**
 
 ![](public/assets/img/trello.png)  
-
-## Herramientas  
-
-* Materialize (Framework).
-* jQuery (Librería JS).
-* Babel (transpilador).
-
-## Ejemplo
-
-```html
-<form>
-  <div class="form-group">
-    <label for="cn">Número de tarjeta</label>
-    <input id="cn" name="cn" />
-  </div>
-  <div class="form-group">
-    <label for="exp">Fecha de vencimiento</label>
-    <input id="exp" name="exp" />
-  </div>
-  <div class="form-group">
-    <label for="cvv">CVV</label>
-    <input id="cvv" name="cvv" />
-  </div>
-  <div class="form-group">
-    <label for="name">Nombre completo</label>
-    <input id="name" name="name" />
-  </div>
-  <input type="submit" value="Pagar" />
-</form>
-```
-
-```js
-const form = document.querySelector('form');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (validateCardDetails(form)) {
-    console.log('datos válido... enviar...');
-  } else {
-    console.log('datos inválidos');
-  }
-});
-```
-
-A la hora de hacer las validaciones, la librería debería de añadir la clase
-`.error` a los `<input>`s que no pasen la validación, o la clase `.success`
-en caso de que sí pase.
