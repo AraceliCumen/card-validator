@@ -119,5 +119,5 @@ Cada vez más personas emplean las tarjetas de crédito al momento de realizar c
   
 ## Desarrolladoras
 
-* **Araceli Cueva:** [GitHub Account](hhttps://github.com/AraceliCumen).
+* **Araceli Cueva:** [GitHub Account](https://github.com/AraceliCumen).
 * **Alejandra Cabrera:** [GitHub Account](https://github.com/AlejandraCP).  
