@@ -12,7 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/AraceliCumen/card-validator.git"
   },
-  "keywords": ["Library", "ECMAScript6"],
+  "keywords": [
+    "Library",
+    "ECMAScript6"
+  ],
   "author": "Aracely Cueva, Alejandra Cabrera",
   "license": "ISC",
   "bugs": {
@@ -21,6 +24,8 @@
   "homepage": "https://github.com/AraceliCumen/card-validator#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "install": "^0.10.4",
+    "npm": "^5.6.0"
   }
 }

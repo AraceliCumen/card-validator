@@ -1,3 +1,4 @@
+cl = console
 // VARIABLES PARA JALAR IMAGENES DE TARJETAS
 // Imágen tarjeta Visa
 const visa = '../public/assets/img/visa.png';
