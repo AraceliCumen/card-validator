@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="shortcut icon" href="assets/img/logo.png">
   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
   <div class="row">
     <div class="col s8 offset-s2">
@@ -18,12 +21,12 @@
     </div>
   </div>
   <div class="row container-flex-row">
-    <div class="col s8 offset-s2 container-flex-column">
-      <img src="assets/img/tarjets.jpg" alt="tarjetas" class="responsive-img img-tarj">
+    <div class="col s8 offset-s2 m6 offset-m3 container-flex-column">
+      <img src="assets/img/tarjetas.png" alt="tarjetas" class="responsive-img img-tarj">
     </div>
   </div>
   <div class="row">
-    <form class="col s8 offset-s2" id="form-dard-validate">
+    <form class="col s8 m6 offset-m3 offset-s2 border-rad bg-white" id="form-dard-validate">
       <div class="input-field col s12">
         <i class="material-icons prefix">credit_card</i>
         <input id="cn" name="cn" type="text" class="validate" maxlength="16">
@@ -42,18 +45,156 @@
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">assignment_ind</i>
-        <input id="name"  name="name" type="text" class="validate">
+        <input id="name" name="name" type="text" class="validate">
         <label for="name">Name on Card</label>
       </div>
-      <div class="col s12 container-flex-column">
+      <div class="col s12 container-flex-column btn-cont">
         <input type="submit" class="btn" disabled id="btn-pay" value="pay">
-      </div>
-      <div class="col s12 container-flex-column">
-        <br>
-        <p class="center-align">Developed by Araceli and Alejandra</p>
       </div>
     </form>
   </div>
+  <div class="container bg-white users border-rad">
+    <div class="row">
+      <h3 class="center-align">Usuarios prueba</h3>
+    </div>
+    <div class="container">
+      <div class="row">
+        <table class="bordered highlight responsive-table ">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Número de Tarjeta</th>
+              <th>Fecha de Expiración</th>
+              <th>Código de verificación</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Araceli Cueva Mendoza</td>
+              <td>4131341048903951</td>
+              <td>11/20</td>
+              <td>123</td>
+            </tr>
+            <tr>
+              <td>Alejandra Cespedes</td>
+              <td>5884462927150146</td>
+              <td>10/19</td>
+              <td>234</td>
+            </tr>
+            <tr>
+              <td>Ana Cabrera Roldan</td>
+              <td>340815797844933</td>
+              <td>10/21</td>
+              <td>345</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <h3 class="center-align">Instalación</h3>
+    </div>
+    <div class="row">
+      <div class="col m4 s12 sub-title">
+        <p>Usar Jquery (cdn)</p>
+      </div>
+      <div class="col m8 s12 code bg-code">
+        <pre><code>&lt;script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col m4 s12 sub-title">
+        <p>Descargar o clonar repositorio y agregar archivo public/js/index.js,</p>
+      </div>
+      <div class="col m8 s12 code bg-code">
+        <pre><code>&lt;script type="text/javascript" src="js/index.js"&gt;&lt;/script&gt;    
+        </code></pre>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col m4 s12 sub-title">
+        <p>Opción sin descargar archivo</p>
+      </div>
+      <div class="col m8 s12 code bg-code">
+        <pre><code>&lt;script type="text/javascript" src="https://aracelicumen.github.io/card-validator/public/js/index.js"&gt;&lt;/script&gt;    
+                </code></pre>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col m4 s12 sub-title">
+        <p>Cada input de ingreso de datos debe contener los siguientes ID</p>
+        <p>Snippet</p>
+      </div>
+      <div class="col m8 s12 code bg-code">
+        <pre><code>&lt;form id="form-card-validate"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="cn"&gt;Número de tarjeta&lt;/label&gt;
+      &lt;input id="cn"/&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="exp">Fecha de vencimiento&lt;/label&gt;
+      &lt;input id="exp"/&gt;
+  &lt;/div>
+  &lt;div class="form-group"&gt;
+    &lt;label for="cvv">CVV&lt;/label&gt;
+      &lt;input id="cvv"/&gt;
+  &lt;/div>
+  &lt;div class="form-group"&gt;
+    &lt;label for="name">Nombre completo&lt;/label&gt;
+      &lt;input id="name"/&gt;
+  &lt;/div&gt;
+  &lt;input type="submit" value="Pagar" id="btn-pay" /&gt;
+&lt;/form>&gt;&lt;/html&gt;    
+                        </code></pre>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col m4 s12 sub-title">
+        <p>Uso</p>
+      </div>
+      <div class="col m8 s12 code bg-code">
+        <pre><code>
+var $formCardValidate = ('#form-card-validate');
+var $cardNumber = $('#cn'); 
+var $expiryDate = $('#exp'); 
+var $cvv = $('#cvv');
+var $name = $('#name'); 
+var $buttonPay = $('#btn-pay'); 
+
+$cardNumber.on('input', function () {
+  validateNumberCard($cardNumber,$typeOfCard); 
+  activeButton($buttonPay); 
+}); 
+$name.on('input', function () { 
+  isNameValid($name); 
+  activeButton($buttonPay);
+}); 
+$cvv.on('input', function () { 
+  validateCvv($cvv); 
+  activeButton($buttonPay); 
+}); 
+$expiryDate.on('input', function () {
+  isDateValid($expiryDate); 
+  activeButton($buttonPay); 
+});</code></pre>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer class="footer-bg">
+    <div class="col s12 container-flex-column">
+      <p class="center-align">Developed by Araceli and Alejandra</p>
+    </div>
+  </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="../src/app.js"></script>
@@ -61,4 +202,5 @@
   <script src="../src/data.js"></script>
   <script src="../src/validatedata.js"></script>
 </body>
+
 </html>
