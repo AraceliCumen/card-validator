@@ -3,8 +3,11 @@
 
 **Card Validator** es una librería para la `validación del número de tarjeta`, `fecha de vencimiento`, `código de verificación (cvv)` y `nombre completo` que aparece en la tarjeta.  
 
-Para la verificación del número de tarjeta se hace uso del algoritmo de [Luhn](https://en.wikipedia.org/wiki/Luhn_algorithm).
+Para la verificación del número de tarjeta se hace uso del algoritmo de [Luhn](https://es.wikipedia.org/wiki/Algoritmo_de_Luhn).
 
+---
+[Demo](https://aracelicumen.github.io/card-validator/public/)
+---
 ---
 ## Herramientas
 - HTML5.
