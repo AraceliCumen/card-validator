@@ -29,24 +29,24 @@
     <form class="col s8 m6 offset-m3 offset-s2 border-rad bg-white" id="form-dard-validate">
       <div class="input-field col s12">
         <i class="material-icons prefix">credit_card</i>
-        <input id="cn" name="cn" type="text" class="validate" maxlength="16">
+        <input id="cn" type="text" name="cn" class="validate" required maxlength="16">
         <label for="cn">Card Number</label>
         <img id="type-card" src="" alt="">
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">today</i>
-        <input id="exp" name="exp" type="text" class="validate" maxlength="5">
+        <input id="exp" name="exp" type="text" class="validate" required maxlength="5">
         <label for="exp">Expiry Date</label>
       </div>
       <div class="input-field col s6">
         <i class="material-icons prefix">picture_in_picture</i>
-        <input id="cvv" name="cvv" type="text" class="validate" maxlength="3">
+        <input id="cvv" type="text" name="cvv" class="validate" required maxlength="3">
         <label for="cvv">CVV</label>
       </div>
       <div class="input-field col s12">
         <i class="material-icons prefix">assignment_ind</i>
-        <input id="name" name="name" type="text" class="validate">
-        <label for="name">Name on Card</label>
+        <input id="name" type="text" name="name" class="validate" required>
+        <label for="name"> Name on Card</label>
       </div>
       <div class="col s12 container-flex-column btn-cont">
         <input type="submit" class="btn" disabled id="btn-pay" value="pay">
