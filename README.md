@@ -1,5 +1,5 @@
-# Card Validator
->Producto Final: Library to Card Validation.
+# Card Validator - Producto Final: Library to Card Validation.
+
 
 **Card Validator** es una librería para la `validación del número de tarjeta`, `fecha de vencimiento`, `código de verificación (cvv)` y `nombre completo` que aparece en la tarjeta.  
 
