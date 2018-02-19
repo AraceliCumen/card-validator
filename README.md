@@ -1,5 +1,5 @@
 
-# Proyecto: Card Validator - Library to Card Validation.
+# Proyecto: Card Validator 
 
 Card Validator es una librería para la validación del número de tarjeta, fecha de vencimiento, código de verificación (cvv) y nombre completo que aparece en la tarjeta. Para la verificación del número de tarjeta se hace uso del algoritmo de Luhn.
 
@@ -8,7 +8,8 @@ Card Validator es una librería para la validación del número de tarjeta, fech
 ## Desarrollado para 
 [Laboratoria](http://laboratoria.la)
 
-#  - Producto Final: 
+#  - Producto Final: Library to Card Validation.
+
 
 **Card Validator** es una librería para la `validación del número de tarjeta`, `fecha de vencimiento`, `código de verificación (cvv)` y `nombre completo` que aparece en la tarjeta.  
 
