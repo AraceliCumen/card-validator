@@ -83,7 +83,7 @@ var $cardNumber = $('#cn');
 var $expiryDate = $('#exp');
 var $cvv = $('#cvv');
 var $name = $('#name');
-var $buttonPay = $('#btn-pay');
+// var $buttonPay = $('#btn-pay');
 
 $cardNumber.on('input', function () {
   validateNumberCard($cardNumber, $typeOfCard);
